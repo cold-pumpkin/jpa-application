@@ -1,6 +1,7 @@
 package jpabook.jpashop.Repository;
 
 import jpabook.jpashop.domain.Member;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -8,10 +9,11 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
+@RequiredArgsConstructor  // final이 붙은 필드에 대해 빈 생성자 주입 (스프링부트에서 @PersistenceContext 대신 @Autowired도 허용하기 때문에 가능)
 public class MemberRepository {
 
-    @PersistenceContext
-    private EntityManager em;
+    //@PersistenceContext
+    private final EntityManager em;
 
     public void save(Member member) {
         em.persist(member);  // PersistenceContext에 member 객체 저장 (트랜잭션 Commit 시점에 DB반영)
