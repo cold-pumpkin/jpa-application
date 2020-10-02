@@ -3,13 +3,13 @@ spring:
     ansi:
       enabled: ALWAYS
   datasource:
-    url: jdbc:h2:mem:test
+    url: jdbc:h2:mem:test   # In-Memory (이렇게 설정하거나 별도의 설정없으면 메모리 모드로 실행)
     username: sa
     password:
     driver-class-name: org.h2.Driver
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: create-drop
     properties:
       hibernate:
         show_sql: true
