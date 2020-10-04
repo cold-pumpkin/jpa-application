@@ -41,7 +41,7 @@ public abstract class Item {
         if (restStock < 0) {
             throw new NotEnoughStockException("재고가 부족합니다!");
         }
-        this.stockQuantity = 0;
+        this.stockQuantity = restStock;
     }
 
 }
