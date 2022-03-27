@@ -27,7 +27,7 @@ public class OrderRepository {
         return em.find(Order.class, id);
     }
 
-    // 주문 검색 - Criteria를 활용한 동적 쿼리
+    // 주문 검색 - Criteria를 활용한 동적 쿼리 (비추)
     public List<Order> findAllByCriteria(OrderSearch orderSearch) {
         CriteriaBuilder cb = em.getCriteriaBuilder();
         CriteriaQuery<Order> cq = cb.createQuery(Order.class);
@@ -50,4 +50,7 @@ public class OrderRepository {
         TypedQuery<Order> query = em.createQuery(cq).setMaxResults(1000); //최대 1000건
         return query.getResultList();
     }
+    
+    // QueryDSL 사용하기!
+    
 }
